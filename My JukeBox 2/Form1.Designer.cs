@@ -40,7 +40,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.DoubleBuffered = true;
             this.Name = "JukeBox";
-            this.Text = "Form1";
+            this.Text = "My JukeBox ";
             this.ResumeLayout(false);
 
         }
