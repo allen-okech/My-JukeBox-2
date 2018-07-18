@@ -70,6 +70,7 @@
             this.hScrollBar_Genre.Size = new System.Drawing.Size(228, 26);
             this.hScrollBar_Genre.TabIndex = 3;
             this.hScrollBar_Genre.Value = 1;
+            this.hScrollBar_Genre.ValueChanged += new System.EventHandler(this.hScrollBar_Genre_ValueChanged);
             // 
             // txt_Playing
             // 
@@ -161,6 +162,7 @@
             this.Name = "JukeBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My JukeBox ";
+            this.Shown += new System.EventHandler(this.JukeBox_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.MediaPlayer)).EndInit();
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
