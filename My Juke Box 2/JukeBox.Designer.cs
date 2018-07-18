@@ -60,6 +60,7 @@
             this.lst_Genre.Name = "lst_Genre";
             this.lst_Genre.Size = new System.Drawing.Size(228, 95);
             this.lst_Genre.TabIndex = 2;
+            this.lst_Genre.DoubleClick += new System.EventHandler(this.lst_Genre_DoubleClick);
             // 
             // hScrollBar_Genre
             // 
