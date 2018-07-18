@@ -162,7 +162,7 @@
             // 
             // btn_MoveToGenre
             // 
-            this.btn_MoveToGenre.Location = new System.Drawing.Point(274, 128);
+            this.btn_MoveToGenre.Location = new System.Drawing.Point(274, 133);
             this.btn_MoveToGenre.Name = "btn_MoveToGenre";
             this.btn_MoveToGenre.Size = new System.Drawing.Size(109, 23);
             this.btn_MoveToGenre.TabIndex = 2;
@@ -172,7 +172,7 @@
             // 
             // btn_CopyToGenre
             // 
-            this.btn_CopyToGenre.Location = new System.Drawing.Point(274, 93);
+            this.btn_CopyToGenre.Location = new System.Drawing.Point(274, 95);
             this.btn_CopyToGenre.Name = "btn_CopyToGenre";
             this.btn_CopyToGenre.Size = new System.Drawing.Size(109, 23);
             this.btn_CopyToGenre.TabIndex = 1;

@@ -48,15 +48,15 @@
             // txt_Genre_Title
             // 
             this.txt_Genre_Title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.txt_Genre_Title.Location = new System.Drawing.Point(144, 124);
+            this.txt_Genre_Title.Location = new System.Drawing.Point(147, 124);
             this.txt_Genre_Title.Name = "txt_Genre_Title";
-            this.txt_Genre_Title.Size = new System.Drawing.Size(228, 20);
+            this.txt_Genre_Title.Size = new System.Drawing.Size(231, 20);
             this.txt_Genre_Title.TabIndex = 1;
             // 
             // lst_Genre
             // 
             this.lst_Genre.FormattingEnabled = true;
-            this.lst_Genre.Location = new System.Drawing.Point(144, 144);
+            this.lst_Genre.Location = new System.Drawing.Point(147, 144);
             this.lst_Genre.Name = "lst_Genre";
             this.lst_Genre.Size = new System.Drawing.Size(228, 95);
             this.lst_Genre.TabIndex = 2;
@@ -65,7 +65,7 @@
             // hScrollBar_Genre
             // 
             this.hScrollBar_Genre.LargeChange = 1;
-            this.hScrollBar_Genre.Location = new System.Drawing.Point(144, 239);
+            this.hScrollBar_Genre.Location = new System.Drawing.Point(147, 239);
             this.hScrollBar_Genre.Minimum = 1;
             this.hScrollBar_Genre.Name = "hScrollBar_Genre";
             this.hScrollBar_Genre.Size = new System.Drawing.Size(228, 26);
@@ -76,7 +76,7 @@
             // txt_Playing
             // 
             this.txt_Playing.BackColor = System.Drawing.Color.Lime;
-            this.txt_Playing.Location = new System.Drawing.Point(120, 276);
+            this.txt_Playing.Location = new System.Drawing.Point(123, 276);
             this.txt_Playing.Name = "txt_Playing";
             this.txt_Playing.ReadOnly = true;
             this.txt_Playing.Size = new System.Drawing.Size(266, 20);
@@ -86,7 +86,7 @@
             // 
             this.lst_Playlist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.lst_Playlist.FormattingEnabled = true;
-            this.lst_Playlist.Location = new System.Drawing.Point(144, 326);
+            this.lst_Playlist.Location = new System.Drawing.Point(147, 326);
             this.lst_Playlist.Name = "lst_Playlist";
             this.lst_Playlist.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.lst_Playlist.Size = new System.Drawing.Size(218, 134);
@@ -95,10 +95,10 @@
             // MediaPlayer
             // 
             this.MediaPlayer.Enabled = true;
-            this.MediaPlayer.Location = new System.Drawing.Point(18, 13);
+            this.MediaPlayer.Location = new System.Drawing.Point(18, 0);
             this.MediaPlayer.Name = "MediaPlayer";
             this.MediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("MediaPlayer.OcxState")));
-            this.MediaPlayer.Size = new System.Drawing.Size(217, 56);
+            this.MediaPlayer.Size = new System.Drawing.Size(217, 69);
             this.MediaPlayer.TabIndex = 5;
             this.MediaPlayer.Visible = false;
             this.MediaPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.MediaPlayer_PlayStateChange);
@@ -114,9 +114,9 @@
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.setupToolStripMenuItem1,
             this.aboutToolStripMenuItem});
-            this.MainMenu.Location = new System.Drawing.Point(0, 617);
+            this.MainMenu.Location = new System.Drawing.Point(0, 622);
             this.MainMenu.Name = "MainMenu";
-            this.MainMenu.Size = new System.Drawing.Size(499, 24);
+            this.MainMenu.Size = new System.Drawing.Size(504, 24);
             this.MainMenu.TabIndex = 8;
             this.MainMenu.Text = "menuStrip1";
             // 
@@ -152,7 +152,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(499, 641);
+            this.ClientSize = new System.Drawing.Size(504, 646);
             this.Controls.Add(this.lbl_Copyright);
             this.Controls.Add(this.MediaPlayer);
             this.Controls.Add(this.lst_Playlist);
