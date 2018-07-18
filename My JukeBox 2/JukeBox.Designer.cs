@@ -38,7 +38,11 @@
             this.MediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.MainMenu = new System.Windows.Forms.MenuStrip();
+            this.setupToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbl_Copyright = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MediaPlayer)).BeginInit();
+            this.MainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_Genre_Title
@@ -102,11 +106,40 @@
             // 
             // MainMenu
             // 
-            this.MainMenu.Location = new System.Drawing.Point(0, 0);
+            this.MainMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.setupToolStripMenuItem1,
+            this.aboutToolStripMenuItem});
+            this.MainMenu.Location = new System.Drawing.Point(0, 617);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Size = new System.Drawing.Size(499, 24);
             this.MainMenu.TabIndex = 8;
             this.MainMenu.Text = "menuStrip1";
+            // 
+            // setupToolStripMenuItem1
+            // 
+            this.setupToolStripMenuItem1.Name = "setupToolStripMenuItem1";
+            this.setupToolStripMenuItem1.Size = new System.Drawing.Size(49, 20);
+            this.setupToolStripMenuItem1.Text = "Setup";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // lbl_Copyright
+            // 
+            this.lbl_Copyright.AutoSize = true;
+            this.lbl_Copyright.BackColor = System.Drawing.Color.Black;
+            this.lbl_Copyright.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Copyright.ForeColor = System.Drawing.SystemColors.Window;
+            this.lbl_Copyright.Location = new System.Drawing.Point(298, 0);
+            this.lbl_Copyright.Name = "lbl_Copyright";
+            this.lbl_Copyright.Size = new System.Drawing.Size(197, 15);
+            this.lbl_Copyright.TabIndex = 9;
+            this.lbl_Copyright.Text = "Copyright © 2018 Allen Okech";
             // 
             // JukeBox
             // 
@@ -115,6 +148,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(499, 641);
+            this.Controls.Add(this.lbl_Copyright);
             this.Controls.Add(this.MediaPlayer);
             this.Controls.Add(this.lst_Playlist);
             this.Controls.Add(this.txt_Playing);
@@ -127,6 +161,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My JukeBox ";
             ((System.ComponentModel.ISupportInitialize)(this.MediaPlayer)).EndInit();
+            this.MainMenu.ResumeLayout(false);
+            this.MainMenu.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,6 +178,9 @@
         private AxWMPLib.AxWindowsMediaPlayer MediaPlayer;
         public System.Windows.Forms.Timer timer;
         private System.Windows.Forms.MenuStrip MainMenu;
+        private System.Windows.Forms.ToolStripMenuItem setupToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Label lbl_Copyright;
     }
 }
 
