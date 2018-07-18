@@ -101,10 +101,12 @@
             this.MediaPlayer.Size = new System.Drawing.Size(217, 56);
             this.MediaPlayer.TabIndex = 5;
             this.MediaPlayer.Visible = false;
+            this.MediaPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.MediaPlayer_PlayStateChange);
             // 
             // timer
             // 
             this.timer.Interval = 3000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // MainMenu
             // 
