@@ -74,7 +74,7 @@
             this.groupBox2.Controls.Add(this.lst_Present_Genre);
             this.groupBox2.Controls.Add(this.txt_GenreTitle);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(389, 15);
+            this.groupBox2.Location = new System.Drawing.Point(399, 15);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(243, 364);
             this.groupBox2.TabIndex = 4;
@@ -185,7 +185,7 @@
             this.groupBox1.Controls.Add(this.btn_ClearImportedTracks);
             this.groupBox1.Controls.Add(this.btn_ImportTracks);
             this.groupBox1.Controls.Add(this.lst_Imported);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(3, 9);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(255, 370);
             this.groupBox1.TabIndex = 0;
@@ -223,7 +223,7 @@
             // 
             // btn_Ok
             // 
-            this.btn_Ok.Location = new System.Drawing.Point(474, 407);
+            this.btn_Ok.Location = new System.Drawing.Point(492, 408);
             this.btn_Ok.Name = "btn_Ok";
             this.btn_Ok.Size = new System.Drawing.Size(75, 23);
             this.btn_Ok.TabIndex = 3;
@@ -233,7 +233,7 @@
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(570, 407);
+            this.btn_Cancel.Location = new System.Drawing.Point(580, 407);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
             this.btn_Cancel.TabIndex = 2;
