@@ -165,21 +165,7 @@ namespace My_JukeBox_2
         // DONT FORGET//
         private void btn_DeleteGenre_Click(object sender, EventArgs e)
         {
-            int i;
-            RSave = true;
-            if (MessageBox.Show(string.Concat("Deleting the Genre will remove all of it's tracks from your jukebox.", Environment.NewLine, Environment.NewLine "Do you wish to continue?"), MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-            {
-                if (Int_ShowGenreNumber >= Int_SetupNumberofGenre)
-                {
-                    Setup_Media_Library[Int_ShowGenreNumber - 1].Items.RemoveAt(0);
-                    for (i = 1; i < Setup_Media_Library[Int_ShowGenreNumber - 1].Items.Count - 1; i++)
-                    {
-                        File.Delete(string.Concat(Str_CopyTracksTo, Setup_Media_Library[Int_ShowGenreNumber - 1].Items[i]));
-                    }
-                    Setup_Media_Library[Int_ShowGenreNumber - 1].Dispose();
-                }
-            }
-            }
+
         }
 
         private void btn_ImportTracks_Click(object sender, EventArgs e)
