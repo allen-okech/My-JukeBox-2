@@ -37,6 +37,7 @@ namespace My_JukeBox_2
             (new AboutForm()).ShowDialog();
         }
 
+        // Enables user to scroll through genres 
         private void hScrollBar_Genre_ValueChanged(object sender, EventArgs e)
         {
             txt_Genre_Title.Text = Media_Library[hScrollBar_Genre.Value - 1].Items[0].ToString();
@@ -101,6 +102,7 @@ namespace My_JukeBox_2
             Media_Library[1].Items.Add("Genrel");
         }
 
+        // Location from which the files are loaded from
         private bool Load_Media_Lists()
         {
             bool trigger;
@@ -181,9 +183,7 @@ namespace My_JukeBox_2
                 lst_Genre.Items.Add(Media_Library[DiscGenre].Items[i].ToString());
             }
         }
-
-        // Opens Setup Form
-        
+   
 
         // 3 second interval between tracks
         private void timer_Tick(object sender, EventArgs e)
@@ -198,7 +198,7 @@ namespace My_JukeBox_2
                 FileLoadAndPlay();
             }
         }
-
+        // Opens Setup form
         private void setupToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             (new SetupForm()).ShowDialog();

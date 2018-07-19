@@ -36,6 +36,7 @@ namespace My_JukeBox_2
             InitializeComponent();
         }
 
+        // Enables the user to add a genre//
         private void btn_AddGenre_Click(object sender, EventArgs e)
         {
             string i;
@@ -72,7 +73,7 @@ namespace My_JukeBox_2
             }
             Close();
         }
-
+        // Clears music files within the imported items listbox//
         private void btn_ClearImportedTracks_Click(object sender, EventArgs e)
         {
             lst_Imported.Items.Clear();
@@ -133,7 +134,7 @@ namespace My_JukeBox_2
             }
             Close();
         }
-
+        // Adds to genre list//
         private void AddToGList(int DiscGenre)
         {
             lst_Present_Genre.Items.Clear();
@@ -143,7 +144,7 @@ namespace My_JukeBox_2
                 lst_Present_Genre.Items.Add(Setup_Media_Library[DiscGenre - 1].Items[i].ToString());
             }
         }
-
+        // Enables the user to deleted tracks from selcted genre //
         private void btn_DeleteFromGenre_Click(object sender, EventArgs e)
         {
             RSave = true;
@@ -168,11 +169,13 @@ namespace My_JukeBox_2
 
         }
 
+        // Used to import tracks to selected genres//
         private void btn_ImportTracks_Click(object sender, EventArgs e)
-        {
+        {   // Opens file browser to allow you to select files to input//
             RSave = true;
             if (folderBrowserDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                // Limits the user to ability to import certain music file formats//
                 foreach (string str in
                     from s in Directory.EnumerateFiles(folderBrowserDialog1.SelectedPath, "*.*", SearchOption.AllDirectories)
                     where (s.EndsWith(".mp3") || s.EndsWith(".wma") || s.EndsWith(".wav") || s.EndsWith(".MP3") || s.EndsWith(".WMA") ? true : s.EndsWith(".WAV"))
@@ -190,7 +193,7 @@ namespace My_JukeBox_2
                 }
             }
         }
-
+        // Allows user to switch to next genre //
         private void btn_NextGenre_Click(object sender, EventArgs e)
         {
             if (Int_ShowGenreNumber < Int_SetupNumberofGenre)
@@ -208,7 +211,7 @@ namespace My_JukeBox_2
                 }
             }
         }
-
+        // Allows user to navigate to previous genre //
         private void btn_PreviousGenre_Click(object sender, EventArgs e)
         {
             if (Int_ShowGenreNumber > 0)
@@ -226,7 +229,7 @@ namespace My_JukeBox_2
                 }
             }
         }
-
+        // Checks whether other genres use a specific track  //
         private bool IsUsed(string Track)
         {
             bool trigger;
