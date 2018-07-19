@@ -50,7 +50,7 @@
             // 
             // txt_About
             // 
-            this.txt_About.BackColor = System.Drawing.SystemColors.Control;
+            this.txt_About.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_About.Location = new System.Drawing.Point(181, 44);
             this.txt_About.Multiline = true;
             this.txt_About.Name = "txt_About";
@@ -94,6 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(418, 305);
             this.Controls.Add(this.btn_AboutOk);
             this.Controls.Add(this.panel1);

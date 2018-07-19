@@ -37,8 +37,6 @@ namespace My_JukeBox_2
             (new AboutForm()).ShowDialog();
         }
 
-        ///////PROJECT OVERRIDE//////// 
-
         private void hScrollBar_Genre_ValueChanged(object sender, EventArgs e)
         {
             txt_Genre_Title.Text = Media_Library[hScrollBar_Genre.Value - 1].Items[0].ToString();
