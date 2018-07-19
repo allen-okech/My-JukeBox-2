@@ -35,8 +35,96 @@ namespace My_JukeBox_2
         {
             InitializeComponent();
         }
+        
+        // Used to import tracks to selected genres//
+        private void btn_ImportTracks_Click(object sender, EventArgs e)
+        {   // Opens file browser to allow you to select files to input//
+            RSave = true;
+            if (folderBrowserDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                // Limits the user to ability to import certain music file formats//
+                foreach (string str in
+                    from s in Directory.EnumerateFiles(folderBrowserDialog1.SelectedPath, "*.*", SearchOption.AllDirectories)
+                    where (s.EndsWith(".mp3") || s.EndsWith(".wma") || s.EndsWith(".wav") || s.EndsWith(".MP3") || s.EndsWith(".WMA") ? true : s.EndsWith(".WAV"))
+                    select s)
+                {
+                    lst_Imported.Items.Add(str);
+                }
+                if (lst_Imported.Items.Count <= -1)
+                {
+                    btn_ImportTracks.Enabled = true;
+                }
+                else
+                {
+                    btn_ImportTracks.Enabled = false;
+                }
+            }
+        }
+       
+        // Clears music files within the imported items listbox//
+        private void btn_ClearImportedTracks_Click(object sender, EventArgs e)
+        {
+            lst_Imported.Items.Clear();
+            Str_CopyTracksTo = "";
+        }
+        
+        // Allows user to copy tracks to specific genres//
+        private void btn_CopyToGenre_Click(object sender, EventArgs e)
+        {
+            RSave = true;
+            if (lst_Imported.SelectedIndex == -1)
+            {
+                MessageBox.Show("You must Select an item to Copy.");
+            }
+            else
+            {
+                lst_Present_Genre.Items.Add(lst_Imported.Items[lst_Imported.SelectedIndex]);
+                Setup_Media_Library[Int_ShowGenreNumber].Items.Add(lst_Imported.Items[lst_Imported.SelectedIndex]);
+                if (!File.Exists(string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex])))
 
-        // Enables the user to add a genre//
+                {
+                    //   File.Copy(string.Concat(Str_CopyTracksFrom, lst_Imported.Items[lst_Imported.SelectedIndex]), string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex]));
+                    File.Copy(string.Concat(Str_CopyTracksFrom, lst_Imported.Items[lst_Imported.SelectedIndex]), string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex]));
+                }
+            }
+        }
+        
+        // Moves selected tracks to specific genres//
+        private void btn_MoveToGenre_Click(object sender, EventArgs e)
+        {
+            // Prompts you to select a track before moving forward// 
+            RSave = true;
+            if (lst_Imported.SelectedIndex == -1)
+            {
+                MessageBox.Show("You must Select an item to Move.");
+            }
+            else
+            {
+                lst_Present_Genre.Items.Add(lst_Imported.Items[lst_Imported.SelectedIndex]);
+                Setup_Media_Library[Int_ShowGenreNumber].Items.Add(lst_Imported.Items[lst_Imported.SelectedIndex]);
+                if (!File.Exists(string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex])))
+                {
+                    //  File.Copy(string.Concat(Str_CopyTracksFrom, lst_Imported.Items[lst_Imported.SelectedIndex]), string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex]));
+                    File.Copy(string.Concat(Str_CopyTracksFrom, lst_Imported.Items[lst_Imported.SelectedIndex]), string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex]));
+                }
+                lst_Imported.Items.RemoveAt(lst_Imported.SelectedIndex);
+            }
+        }
+        
+        // Saves the selection //
+        private void btn_Ok_Click(object sender, EventArgs e)
+        {
+            if (RSave)
+            {
+                if (!Save_Media_List())
+                {
+                    MessageBox.Show("Could not Save the new configuration!");
+                }
+            }
+            Close();
+        }
+        
+        // Enables the user to add a genre //
         private void btn_AddGenre_Click(object sender, EventArgs e)
         {
             string i;
@@ -62,78 +150,8 @@ namespace My_JukeBox_2
             }
         }
 
-        private void btn_Cancel_Click(object sender, EventArgs e)
-        {
-            if (RSave)
-            {
-                if (MessageBox.Show(string.Concat("You have made changes to the configuration.", Environment.NewLine, Environment.NewLine, "                   Do you wish to save them?"), "Warning", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-                {
-                    btn_Ok_Click(sender, e);
-                }
-            }
-            Close();
-        }
-        // Clears music files within the imported items listbox//
-        private void btn_ClearImportedTracks_Click(object sender, EventArgs e)
-        {
-            lst_Imported.Items.Clear();
-            Str_CopyTracksTo = "";
-        }
-
-
-        private void btn_CopyToGenre_Click(object sender, EventArgs e)
-        {
-            RSave = true;
-            if (lst_Imported.SelectedIndex == -1)
-            {
-                MessageBox.Show("You must Select an item to Copy.");
-            }
-            else
-            {
-                lst_Present_Genre.Items.Add(lst_Imported.Items[lst_Imported.SelectedIndex]);
-                Setup_Media_Library[Int_ShowGenreNumber].Items.Add(lst_Imported.Items[lst_Imported.SelectedIndex]);
-                if (!File.Exists(string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex])))
-
-                {
-                    //   File.Copy(string.Concat(Str_CopyTracksFrom, lst_Imported.Items[lst_Imported.SelectedIndex]), string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex]));
-                    File.Copy(string.Concat(Str_CopyTracksFrom, lst_Imported.Items[lst_Imported.SelectedIndex]), string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex]));
-                }
-            }
-        }
-
-        // Moves selected tracks to specific genres//
-        private void btn_MoveToGenre_Click(object sender, EventArgs e)
-        {
-            // Prompts you to select a track before moving forward// 
-            RSave = true;
-            if (lst_Imported.SelectedIndex == -1)
-            {
-                MessageBox.Show("You must Select an item to Move.");
-            }
-            else
-            {
-                lst_Present_Genre.Items.Add(lst_Imported.Items[lst_Imported.SelectedIndex]);
-                Setup_Media_Library[Int_ShowGenreNumber].Items.Add(lst_Imported.Items[lst_Imported.SelectedIndex]);
-                if (!File.Exists(string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex])))
-                {
-                    //  File.Copy(string.Concat(Str_CopyTracksFrom, lst_Imported.Items[lst_Imported.SelectedIndex]), string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex]));
-                    File.Copy(string.Concat(Str_CopyTracksFrom, lst_Imported.Items[lst_Imported.SelectedIndex]), string.Concat(Str_CopyTracksTo, lst_Imported.Items[lst_Imported.SelectedIndex]));
-                }
-                lst_Imported.Items.RemoveAt(lst_Imported.SelectedIndex);
-            }
-        }
-
-        private void btn_Ok_Click(object sender, EventArgs e)
-        {
-            if (RSave)
-            {
-                if (!Save_Media_List())
-                {
-                    MessageBox.Show("Could not Save the new configuration!");
-                }
-            }
-            Close();
-        }
+        
+        
         // Adds to genre list//
         private void AddToGList(int DiscGenre)
         {
@@ -169,30 +187,7 @@ namespace My_JukeBox_2
 
         }
 
-        // Used to import tracks to selected genres//
-        private void btn_ImportTracks_Click(object sender, EventArgs e)
-        {   // Opens file browser to allow you to select files to input//
-            RSave = true;
-            if (folderBrowserDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                // Limits the user to ability to import certain music file formats//
-                foreach (string str in
-                    from s in Directory.EnumerateFiles(folderBrowserDialog1.SelectedPath, "*.*", SearchOption.AllDirectories)
-                    where (s.EndsWith(".mp3") || s.EndsWith(".wma") || s.EndsWith(".wav") || s.EndsWith(".MP3") || s.EndsWith(".WMA") ? true : s.EndsWith(".WAV"))
-                    select s)
-                {
-                    lst_Imported.Items.Add(str);
-                }
-                if (lst_Imported.Items.Count <= -1)
-                {
-                    btn_ImportTracks.Enabled = true;
-                }
-                else
-                {
-                    btn_ImportTracks.Enabled = false;
-                }
-            }
-        }
+        
         // Allows user to switch to next genre //
         private void btn_NextGenre_Click(object sender, EventArgs e)
         {
@@ -261,7 +256,20 @@ namespace My_JukeBox_2
             }
             return trigger;
         }
-
+        
+        // Gives the user an option to exit the application //
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {   // Prompts the user to save before exiting //
+            if (RSave)
+            {
+                if (MessageBox.Show(string.Concat("You have made changes to the configuration.", Environment.NewLine, Environment.NewLine, "                   Do you wish to save them?"), "Warning", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    btn_Ok_Click(sender, e);
+                }
+            }
+            Close();
+        }
+        
         // Initiates default value //
         private void InitiateDValue()
         {
