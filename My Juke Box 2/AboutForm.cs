@@ -16,5 +16,10 @@ namespace My_JukeBox_2
         {
             InitializeComponent();
         }
+
+        private void btn_AboutOk_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
